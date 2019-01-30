@@ -1,15 +1,16 @@
 import React from "react";
-import beyImages from "./beyImages";
+import BeyCard from "./BeyCard.js";
 
 class BeyContainer extends React.Component {
-  state = {
-    beyImages: beyImages
-  };
+
+  createBeyCards = () => {
+    return this.props.beyImages.map(bey => (<BeyCard key={bey.id} bey={bey} handleFavorite={this.props.handleFavorite} />));
+  }
   render() {
     return (
       <div className="index">
         <h1>Index</h1>
-        {/*list of beys*/}
+        {this.createBeyCards()}
       </div>
     );
   }
